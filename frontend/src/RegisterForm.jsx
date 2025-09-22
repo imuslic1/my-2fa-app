@@ -1,4 +1,5 @@
 import { useState } from "react";
+import "./RegisterForm.css";
 
 function RegisterForm() {
     const [username, setUsername] = useState("");
@@ -7,6 +8,11 @@ function RegisterForm() {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+
+        if (password !== repeatPassword) {
+            setMessage("Passwords do not match");
+            return;
+        }
 
         try {
             const res = await fetch("http://localhost:4000/api/register", {
@@ -22,27 +28,41 @@ function RegisterForm() {
             setMessage("Error connecting to server");
         }
     };
+    const [repeatPassword, setRepeatPassword] = useState("");
 
     return (
-        <div style={{ maxWidth: "400px", margin: "2rem auto" }}>
+        <div>
             <h2>Register</h2>
-            <form onSubmit={handleSubmit}>
+            <form 
+                className="register-form"
+                onSubmit={handleSubmit} 
+            >
                 <input
                     type="text"
                     placeholder="Username"
                     value={username}
                     onChange={(e) => setUsername(e.target.value)}
                     required
+                    className="username-input"
                 />
-                <br />
+                
                 <input
                     type="password"
                     placeholder="Password"
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
                     required
+                    className="password-input"
                 />
-                <br />
+
+                <input
+                    type="password"
+                    placeholder="Confirm Password"
+                    required
+                    className="repeat-password-input"
+                    value={repeatPassword}
+                    onChange={(e) => setRepeatPassword(e.target.value)}
+                />
                 <button type="submit">Register</button>
             </form>
             {message && <p>{message}</p>}

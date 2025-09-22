@@ -45,22 +45,24 @@ export default function LoginForm() {
                 className="login-form"
                 onSubmit={handleSubmit}
             >
+
                 <input
                     type="text"
                     placeholder="Username"
                     value={username}
                     onChange={(e) => setUsername(e.target.value)}
                     required
+                    className="username-input"
                 />
-                <br />
                 <input
                     type="password"
                     placeholder="Password"
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
                     required
+                    className="password-input"
                 />
-                <br />
+
                 <button type="submit">Login</button>
             </form>
             {message && <p>{message}</p>}

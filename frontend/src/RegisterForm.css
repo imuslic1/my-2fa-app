@@ -1,0 +1,83 @@
+.register-form {
+    max-width: 300px;
+    margin: 2rem auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.username-input {
+    padding: 0.5rem;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    margin-bottom: 0.8rem;
+}
+
+.username-input:hover {
+    border-color: #253d5b;
+    outline: none;
+}
+
+.username-input:focus {
+    border-color: #253d5b;
+    outline: none;
+}
+
+.password-input {
+    padding: 0.5rem;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    margin-bottom: 0.8rem;
+}
+
+.password-input:hover {
+    border-color: #253d5b;
+    outline: none;
+}
+
+.password-input:focus {
+    border-color: #253d5b;
+    outline: none;
+}
+
+.repeat-password-input {
+    padding: 0.5rem;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    margin-bottom: 1.6rem;
+}
+
+.repeat-password-input:hover {
+    border-color: #253d5b;
+    outline: none;
+}
+
+.repeat-password-input:focus {
+    border-color: #253d5b;
+    outline: none;
+    
+}
+
+.register-form button {
+    padding: 0.55rem 1.1rem;
+    font-size: 1.1rem;
+    background-color: #385e8d;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.register-form button:hover {
+    background-color: #253D5B;
+}
+
+.username-input,
+.password-input,
+.repeat-password-input {
+    padding: 0.55rem 1.1rem;
+    font-size: 1.1rem;
+}

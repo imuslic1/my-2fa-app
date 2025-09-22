@@ -1,0 +1,89 @@
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 12px;
+    padding-bottom: 14px;
+    padding-left: 24px;
+    padding-right: 24px;
+    background-color: #49beaa;
+    color: white;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+header img {
+    height: 40px;
+    width: auto;
+}
+
+header h2 {
+    flex: 1;
+    text-align: center;
+    margin: 0;
+    font-weight: 400;
+    font-size: 1.2rem;
+    letter-spacing: 0.5px;
+}
+
+nav {
+    display: flex;
+    gap: 1rem;
+}
+
+nav a {
+    position: relative;
+    background: none;           /* no background */
+    border: none;               /* no border */
+    color: #ffffff;             /* default text color: white */
+    font-size: 16px;
+    font-weight: 400;           /* thicker font */
+    cursor: pointer;
+    padding: 8px 8px;          /* button-like spacing */
+    margin: 0 10px;
+    border-radius: 12px;        /* rounded edges */
+    text-decoration: none;      /* remove default underline */
+    transition: color 0.3s ease-in-out;
+}
+
+/* Hover → slightly darker grey */
+nav a:hover {
+    color: #253D5B;
+}
+
+/* Active/click → darker grey + underline */
+nav a.active {
+    color: #253d5b;
+}
+
+/* Underline animation */
+nav a::after {
+    content: "";
+    position: absolute;
+    left: 10%;                  /* small padding from edges */
+    bottom: 0;                  /* right at the bottom */
+    width: 80%;
+    height: 2px;
+    background-color: #253d5b;  /* default same as active text */
+    transform: scaleX(0);
+    transform-origin: center;     /* animate left → right */
+    transition: transform 0.3s ease-in-out, background-color 0.3s ease-in-out;
+}
+
+/* Trigger underline only on active/click */
+nav a.active::after {
+    transform: scaleX(1);
+}
+
+.logo-container {
+    width: 200px;
+    height: fit-content;
+    text-align: left;
+}
+
+.corner-logo {
+    width: 50px;
+    height: 50px;
+    position: fixed;
+    top: 6px;
+}
+

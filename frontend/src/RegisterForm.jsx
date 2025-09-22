@@ -1,21 +1,15 @@
 import { useState } from "react";
-import "./LoginForm.css"; // Import the CSS file
 
-export default function LoginForm() {
+function RegisterForm() {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     const [message, setMessage] = useState("");
-
-    const clearForm = () => {
-        setUsername("");
-        setPassword("");
-    };
 
     const handleSubmit = async (e) => {
         e.preventDefault();
 
         try {
-            const res = await fetch("http://localhost:4000/api/login", {
+            const res = await fetch("http://localhost:4000/api/register", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({ username, password }),
@@ -23,28 +17,16 @@ export default function LoginForm() {
 
             const data = await res.json();
             setMessage(data.message);
-            if (res.ok) {
-                clearForm();
-            }
         } catch (error) {
             console.error(error);
             setMessage("Error connecting to server");
         }
     };
 
-    const clearMessageOnInput = () => {
-        if (message) {
-            setMessage("");
-        }
-    };
-
     return (
-        <div>
-            <h2>Login</h2>
-            <form
-                className="login-form"
-                onSubmit={handleSubmit}
-            >
+        <div style={{ maxWidth: "400px", margin: "2rem auto" }}>
+            <h2>Register</h2>
+            <form onSubmit={handleSubmit}>
                 <input
                     type="text"
                     placeholder="Username"
@@ -61,10 +43,11 @@ export default function LoginForm() {
                     required
                 />
                 <br />
-                <button type="submit">Login</button>
+                <button type="submit">Register</button>
             </form>
             {message && <p>{message}</p>}
         </div>
-
     );
 }
+
+export default RegisterForm;

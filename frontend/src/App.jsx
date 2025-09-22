@@ -1,16 +1,22 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import { Routes, Route, Navigate } from 'react-router-dom'
 import './App.css'
 import LoginForm from './LoginForm'
+import RegisterForm from './RegisterForm'
+import Header from './Header'
 
 function App() {
-	const [count, setCount] = useState(0)
-
 	return (
-		<div style={{ padding: "2rem", fontFamily: "sans-serif" }}>
-			<h1>My 2FA Demo</h1>
-			<LoginForm />
+		<div>
+			<Header />
+
+			<main style={{ maxWidth: "400px", margin: "2rem auto" }}>
+				<Routes>
+					<Route path="/login" element={<LoginForm />} />
+					<Route path="/register" element={<RegisterForm />} />
+					{/* default redirect */}
+					<Route path="*" element={<Navigate to="/login" />} />
+				</Routes>
+			</main>
 		</div>
 	);
 }

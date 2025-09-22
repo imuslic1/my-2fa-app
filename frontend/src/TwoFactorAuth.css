@@ -1,0 +1,44 @@
+.two-factor-form {
+    max-width: 300px;
+    margin: 2rem auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.two-factor-input {
+    padding: 0.55rem 1.1rem;
+    font-size: 1.1rem;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    margin-bottom: 1.6rem;
+}
+
+.two-factor-input:hover {
+    border-color: #253d5b;
+    outline: none;
+}
+
+.two-factor-input:focus {
+    border-color: #253d5b;
+    outline: none;
+}
+
+.two-factor-form button {
+    padding: 0.55rem 1.1rem;
+    font-size: 1.1rem;
+    background-color: #385e8d;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.two-factor-form button:hover {
+    background-color: #253D5B;
+}
+
+.phone-image {
+    width: 80px;
+    margin-top: 25px;
+}

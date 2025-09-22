@@ -3,6 +3,8 @@ import './App.css'
 import LoginForm from './LoginForm'
 import RegisterForm from './RegisterForm'
 import Header from './Header'
+import TwoFactorAuth from './TwoFactorAuth'
+import Dashboard from './Dashboard'
 
 function App() {
 	return (
@@ -13,6 +15,8 @@ function App() {
 				<Routes>
 					<Route path="/login" element={<LoginForm />} />
 					<Route path="/register" element={<RegisterForm />} />
+					<Route path="/verify-login" element={<TwoFactorAuth />} />
+					<Route path="/dashboard" element={<Dashboard />} />
 					{/* default redirect */}
 					<Route path="*" element={<Navigate to="/login" />} />
 				</Routes>

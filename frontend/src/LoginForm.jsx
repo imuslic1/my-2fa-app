@@ -1,10 +1,12 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import "./LoginForm.css"; // Import the CSS file
 
 export default function LoginForm() {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     const [message, setMessage] = useState("");
+    const navigate = useNavigate();
 
     const clearForm = () => {
         setUsername("");
@@ -25,6 +27,9 @@ export default function LoginForm() {
             setMessage(data.message);
             if (res.ok) {
                 clearForm();
+                setTimeout(() => {
+                    navigate("/verify-login", { state: { tempToken: data.tempToken } });
+                }, 1000);
             }
         } catch (error) {
             console.error(error);
@@ -72,7 +77,7 @@ export default function LoginForm() {
                 <button type="submit">Login</button>
             </form>
             {message=="Login successful" && <p className="success">{message}</p> 
-                || message && <p className="error">{message}</p>}
+                || message=="2FA required" && <p></p> || message && <p className="error">{message}</p>}
         </div>
 
     );

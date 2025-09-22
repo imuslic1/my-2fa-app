@@ -5,11 +5,17 @@ export default function LoginForm() {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
 
+    const clearForm = () => {
+        setUsername("");
+        setPassword("");
+    };
+
     const handleSubmit = async (e) => {
         e.preventDefault();
 
         // For now just log values — later we’ll call backend
         console.log("Login attempt:", { username, password });
+        clearForm();
 
         // Example fetch (uncomment once backend exists)
         /*

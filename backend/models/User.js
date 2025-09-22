@@ -11,12 +11,24 @@ const User = sequelize.define('User', {
         type: DataTypes.STRING,
         allowNull: false
     },
-    
+
     // Secret za Google Authenticator
     twoFactorSecret: {
         type: DataTypes.STRING,
         allowNull: true
-    }
+    },
+
+    // Token za privremenu verifikaciju
+    tempToken: {
+        type: DataTypes.STRING,
+        allowNull: true
+    },
+
+    // Vrijeme isticanja tempTokena
+    tempTokenExpiry: {
+        type: DataTypes.DATE,
+        allowNull: true
+    }  
 }, {
     timestamps: true
 });

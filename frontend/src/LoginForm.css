@@ -5,7 +5,7 @@
     flex-direction: column;
 }
 
-.username-input {
+.login-username-input {
     padding: 0.5rem;
     font-size: 1rem;
     border: 1px solid #ccc;
@@ -13,17 +13,17 @@
     margin-bottom: 0.8rem;
 }
 
-.username-input:hover {
+.login-username-input:hover {
     border-color: #253d5b;
     outline: none;
 }
 
-.username-input:focus {
+.login-username-input:focus {
     border-color: #253d5b;
     outline: none;
 }
 
-.password-input {
+.login-password-input {
     padding: 0.5rem;
     font-size: 1rem;
     border: 1px solid #ccc;
@@ -31,12 +31,12 @@
     margin-bottom: 1.6rem;
 }
 
-.password-input:hover {
+.login-password-input:hover {
     border-color: #253d5b;
     outline: none;
 }
 
-.password-input:focus {
+.login-password-input:focus {
     border-color: #253d5b;
     outline: none;
 }
@@ -56,8 +56,8 @@
     background-color: #253D5B;
 }
 
-.username-input,
-.password-input {
+.login-username-input,
+.login-password-input {
     padding: 0.55rem 1.1rem;
     font-size: 1.1rem;
 }

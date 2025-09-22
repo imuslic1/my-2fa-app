@@ -6,11 +6,19 @@ function RegisterForm() {
     const [password, setPassword] = useState("");
     const [message, setMessage] = useState("");
 
+    const clearForm = () => {
+        setUsername("");
+        setPassword("");
+        setRepeatPassword("");
+    };
+
     const handleSubmit = async (e) => {
         e.preventDefault();
 
         if (password !== repeatPassword) {
             setMessage("Passwords do not match");
+            setPassword("");
+            setRepeatPassword("");
             return;
         }
 
@@ -23,11 +31,23 @@ function RegisterForm() {
 
             const data = await res.json();
             setMessage(data.message);
+            if (res.ok) {
+                clearForm();
+                window.location.href = "/login";
+            }
+
         } catch (error) {
             console.error(error);
             setMessage("Error connecting to server");
         }
     };
+
+    const clearMessage = () => {   
+        if (message) {
+            setMessage("");
+        }
+    };
+
     const [repeatPassword, setRepeatPassword] = useState("");
 
     return (
@@ -41,7 +61,10 @@ function RegisterForm() {
                     type="text"
                     placeholder="Username"
                     value={username}
-                    onChange={(e) => setUsername(e.target.value)}
+                    onChange={(e) => {
+                        setUsername(e.target.value);
+                        clearMessage();
+                    }}
                     required
                     className="username-input"
                 />
@@ -50,7 +73,10 @@ function RegisterForm() {
                     type="password"
                     placeholder="Password"
                     value={password}
-                    onChange={(e) => setPassword(e.target.value)}
+                    onChange={(e) => {
+                        setPassword(e.target.value);
+                        clearMessage();
+                    }}
                     required
                     className="password-input"
                 />
@@ -61,11 +87,15 @@ function RegisterForm() {
                     required
                     className="repeat-password-input"
                     value={repeatPassword}
-                    onChange={(e) => setRepeatPassword(e.target.value)}
+                    onChange={(e) => {
+                        setRepeatPassword(e.target.value);
+                        clearMessage();
+                    }}
                 />
                 <button type="submit">Register</button>
             </form>
-            {message && <p>{message}</p>}
+            {message=="Registration successful" && <p className="success">{message}</p>
+                || message && <p className="error">{message}</p>}
         </div>
     );
 }

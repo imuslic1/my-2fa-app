@@ -81,3 +81,13 @@
     padding: 0.55rem 1.1rem;
     font-size: 1.1rem;
 }
+
+.success {
+    font-size: 20px;
+    color: #74af26;
+}
+
+.error {
+    font-size: 20px;
+    color: #9e0031;
+}

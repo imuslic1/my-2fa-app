@@ -32,7 +32,7 @@ export default function LoginForm() {
         }
     };
 
-    const clearMessageOnInput = () => {
+    const clearMessage = () => {
         if (message) {
             setMessage("");
         }
@@ -50,22 +50,29 @@ export default function LoginForm() {
                     type="text"
                     placeholder="Username"
                     value={username}
-                    onChange={(e) => setUsername(e.target.value)}
+                    onChange={(e) => {
+                        setUsername(e.target.value);
+                        clearMessage();
+                    }}
                     required
-                    className="username-input"
+                    className="login-username-input"
                 />
                 <input
                     type="password"
                     placeholder="Password"
                     value={password}
-                    onChange={(e) => setPassword(e.target.value)}
+                    onChange={(e) => {
+                        setPassword(e.target.value);
+                        clearMessage();
+                    }}
                     required
-                    className="password-input"
+                    className="login-password-input"
                 />
 
                 <button type="submit">Login</button>
             </form>
-            {message && <p>{message}</p>}
+            {message=="Login successful" && <p className="success">{message}</p> 
+                || message && <p className="error">{message}</p>}
         </div>
 
     );

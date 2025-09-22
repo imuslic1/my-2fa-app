@@ -1,10 +1,13 @@
-import { useState } from "react";
+import { use, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import "./RegisterForm.css";
 
 function RegisterForm() {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
+    const [repeatPassword, setRepeatPassword] = useState("");
     const [message, setMessage] = useState("");
+    const navigate = useNavigate();
 
     const clearForm = () => {
         setUsername("");
@@ -31,9 +34,10 @@ function RegisterForm() {
 
             const data = await res.json();
             setMessage(data.message);
+
             if (res.ok) {
                 clearForm();
-                window.location.href = "/login";
+                navigate("/setup-2fa", { state: { qrCode: data.qrCodeDataURL } });
             }
 
         } catch (error) {
@@ -48,8 +52,7 @@ function RegisterForm() {
         }
     };
 
-    const [repeatPassword, setRepeatPassword] = useState("");
-
+    
     return (
         <div>
             <h2>Register</h2>

@@ -5,6 +5,7 @@ import RegisterForm from './RegisterForm'
 import Header from './Header'
 import TwoFactorAuth from './TwoFactorAuth'
 import Dashboard from './Dashboard'
+import Setup2FA from './Setup2FA'
 
 function App() {
 	return (
@@ -17,6 +18,7 @@ function App() {
 					<Route path="/register" element={<RegisterForm />} />
 					<Route path="/verify-login" element={<TwoFactorAuth />} />
 					<Route path="/dashboard" element={<Dashboard />} />
+					<Route path="/setup-2fa" element={<Setup2FA />} />
 					{/* default redirect */}
 					<Route path="*" element={<Navigate to="/login" />} />
 				</Routes>
